@@ -1,0 +1,6 @@
+{
+  "name": "sublisales",
+  "dependencies": {
+    "nodemailer": "^6.9.15"
+  }
+}
