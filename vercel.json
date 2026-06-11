@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "sublisales-serp-proxy",
+  "functions": {
+    "api/serp.js": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 10
+    }
+  }
+}
