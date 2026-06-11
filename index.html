@@ -374,7 +374,7 @@ main { max-width: 1040px; margin: 28px auto; padding: 0 16px 120px; }
     <small id="loadingSubtitle">잠시만 기다려 주세요</small>
     <div class="loading-steps" id="loadingSteps">
       <div class="loading-step" id="ls1">📰 최신 뉴스 수집 중...</div>
-      <div class="loading-step" id="ls2">🤖 GPT-4o 시장 분석 중...</div>
+      <div class="loading-step" id="ls2">🤖 GPT-4o-mini 시장 분석 중...</div>
       <div class="loading-step" id="ls3">✨ 결과 정리 중...</div>
     </div>
   </div>
@@ -987,7 +987,7 @@ async function callOpenAI(apiKey, messages) {
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
-    body:JSON.stringify({model:'gpt-4o',messages,temperature:0.7})
+    body:JSON.stringify({model:'gpt-4o-mini',messages,temperature:0.7})
   });
   if (!res.ok) { const e=await res.json(); throw new Error(e.error?.message||`HTTP ${res.status}`); }
   return (await res.json()).choices[0].message.content;
@@ -1013,7 +1013,7 @@ function showLoading(on) {
     // 로딩 스텝 초기화
     ['ls1','ls2','ls3'].forEach((id,i)=>{
       const el=document.getElementById(id);
-      const labels=['📰 최신 뉴스 수집 중...','🤖 GPT-4o 시장 분석 중...','✨ 결과 정리 중...'];
+      const labels=['📰 최신 뉴스 수집 중...','🤖 GPT-4o-mini 시장 분석 중...','✨ 결과 정리 중...'];
       el.className='loading-step'; el.textContent=labels[i];
     });
   }
